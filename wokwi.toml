@@ -1,5 +1,3 @@
 [wokwi]
 version = 1
-
-[firmware]
-path = "src/main.py"
+firmware = src/main.py
