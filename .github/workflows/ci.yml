@@ -31,4 +31,5 @@ jobs:
       with:
         token: ${{ secrets.WOKWI_CLI_TOKEN }}
         path: /
+        scenario: wokwi.toml
         expect_text: 'Sistema iniciado'
