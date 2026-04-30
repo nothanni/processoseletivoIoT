@@ -19,5 +19,5 @@ jobs:
       with:
         token: ${{ secrets.WOKWI_CLI_TOKEN }}
         path: .
-        diagram: diagram.json
+        diagram_file: diagram.json
         expect_text: 'Monitor de Temperatura'

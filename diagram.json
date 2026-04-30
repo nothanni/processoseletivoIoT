@@ -9,7 +9,6 @@
       "top": 0,
       "left": 0,
       "attrs": {
-        "firmware": "src/main.py"
       }
     },
     { "type": "wokwi-led", "id": "led1", "top": -100, "left": 200, "attrs": { "color": "red" } },
