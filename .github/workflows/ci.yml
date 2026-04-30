@@ -10,11 +10,23 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Build merged firmware
+      run: |
+        pip install vfs-merge esptool
+        mkdir -p build
+        vfsmerge --port esp32 --firmware ESP32_GENERIC-20260406-v1.28.0.bin --src src --build build
+
     - name: Test with Wokwi
       uses: wokwi/wokwi-ci-action@v1
       with:
         token: ${{ secrets.WOKWI_CLI_TOKEN }}
         path: .
         diagram_file: diagram.json
-        scenario: scenario.yaml
+        expect_text: 'Monitor de Temperatura'
         timeout: 30000
