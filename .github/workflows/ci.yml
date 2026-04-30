@@ -1,23 +1,20 @@
 name: Wokwi Simulation Test
-
 on:
   push:
     branches:
       - feat/actions-build
       - main
-
 jobs:
   wokwi_test:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
     - name: Test with Wokwi
       uses: wokwi/wokwi-ci-action@v1
       with:
         token: ${{ secrets.WOKWI_CLI_TOKEN }}
         path: .
         diagram_file: diagram.json
-        expect_text: 'Monitor de Temperatura'
+        scenario: scenario.yaml
+        timeout: 30000

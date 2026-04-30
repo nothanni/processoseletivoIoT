@@ -1,0 +1,10 @@
+version: 1
+steps:
+  - wait-serial: ">>>"
+  - type-serial: "\x05"
+  - wait-serial: "paste mode"
+  - type-serial-file: "src/main.py"
+  - type-serial: "\x04"
+  - wait-serial: "Monitor de Temperatura"
+expect:
+  - "Monitor de Temperatura"

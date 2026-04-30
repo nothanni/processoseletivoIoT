@@ -2,7 +2,6 @@ import time
 import random
 from machine import Pin
 
-# Configura os LEDs
 led_vermelho = Pin(23, Pin.OUT)
 led_verde = Pin(22, Pin.OUT)
 
