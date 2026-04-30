@@ -1,3 +1,4 @@
+name: Executar main.py no REPL
 version: 1
 steps:
   - wait-serial: ">>>"
