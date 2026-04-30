@@ -1,35 +1,23 @@
-name: ESP32 Filesystem Build
+name: Wokwi Simulation Test
 
 on:
   push:
     branches:
-      - main
       - feat/actions-build
-  pull_request:
-    branches:
       - main
 
 jobs:
-  build_filesystem:
+  wokwi_test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Build Docker image
-      run: docker build -t esp32-builder -f Dockerfile .
-
-    - name: Run container and generate fs.bin
-      run: |
-        docker run --name esp32-fs-builder esp32-builder /bin/bash
-        
-        docker cp esp32-fs-builder:/fs.bin .
-
     - name: Test with Wokwi
       uses: wokwi/wokwi-ci-action@v1
       with:
         token: ${{ secrets.WOKWI_CLI_TOKEN }}
-        path: /
-        scenario: wokwi.toml
-        expect_text: 'Sistema iniciado'
+        path: .
+        diagram: diagram.json
+        expect_text: 'Monitor de Temperatura'

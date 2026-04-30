@@ -3,7 +3,15 @@
   "author": "nothanni",
   "editor": "wokwi",
   "parts": [
-    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {
+        "firmware": "src/main.py"
+      }
+    },
     { "type": "wokwi-led", "id": "led1", "top": -100, "left": 200, "attrs": { "color": "red" } },
     { "type": "wokwi-led", "id": "led2", "top": 50, "left": 200, "attrs": { "color": "green" } }
   ],
